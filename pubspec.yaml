@@ -11,7 +11,7 @@ dependencies:
   clock: ^1.1.1
   dio: ^5.7.0
   drift: ^2.20.3
-  drift_flutter: ^0.1.0
+  drift_flutter: ^0.2.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
