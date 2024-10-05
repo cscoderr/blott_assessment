@@ -1,0 +1,41 @@
+{
+    "@@locale": "en",
+    "authenticationHeaderTitle": "Your legal name",
+    "@authenticationHeaderTitle": {
+        "description": "Title that shows on the authentication page"
+    },
+    "authenticationHeaderSubtitle": "We need to know a bit about you so that we can create your account.",
+    "@authenticationHeaderSubtitle": {
+        "description": "It shows after the authentication page title"
+    },
+    "firstName": "First name",
+    "@firstName": {
+        "description": "First Name"
+    },
+    "lastName": "Last name",
+    "@lastName": {
+        "description": "Last Name"
+    },
+    "notificationTitle": "Get the most out of Blott ✅",
+    "@notificationTitle": {
+        "description": "Title that shows on the notificaton page"
+    },
+    "notificationSubtitle": "Allow notifications to stay in the loop with your payments, requests and groups.",
+    "@notificationSubtitle": {
+        "description": "It shows after the notification page title"
+    },
+    "continueBtnText": "Continue",
+    "@continueBtnText": {
+        "description": "Continue"
+    },
+    "homeTitle": "Hey {firstName}",
+    "@homeTitle": {
+        "description": "Title that shows on the home page",
+        "placeholders": {
+            "firstName": {
+                "type": "String",
+                "description": "First Name"
+            }
+        }
+    }
+}
