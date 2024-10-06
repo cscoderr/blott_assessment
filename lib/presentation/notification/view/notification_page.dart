@@ -4,6 +4,7 @@ import 'package:blott_assessment/l10n/l10n.dart';
 import 'package:blott_assessment/presentation/home/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
@@ -46,9 +47,10 @@ class NotificationPage extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                onPressed: () => Navigator.of(context).push(HomePage.route()),
-                //Permission.notification.request(),
-                //Navigator.of(context).push(HomePage.route()),
+                onPressed: () {
+                  Permission.notification.request();
+                  Navigator.of(context).push(HomePage.route());
+                },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(size.width, 60),
                   backgroundColor: Theme.of(context).primaryColor,

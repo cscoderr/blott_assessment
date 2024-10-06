@@ -18,6 +18,13 @@ class MarketNewsCubit extends Cubit<MarketNewsState> {
       emit(MarketNewsLoading());
     }
     final response = await _getMarketNewsUsecase();
-    emit(MarketNewsSuccess(response));
+    response.when(
+      success: (data) {
+        emit(MarketNewsSuccess(data));
+      },
+      failure: (error) {
+        emit(MarketNewsFailure(error.toString()));
+      },
+    );
   }
 }

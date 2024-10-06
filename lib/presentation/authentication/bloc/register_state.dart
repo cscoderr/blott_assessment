@@ -7,6 +7,7 @@ class RegisterState extends Equatable {
     this.isValid = false,
     this.status = FormzSubmissionStatus.initial,
     this.user,
+    this.errorMessage = '',
   });
 
   RegisterState copyWith({
@@ -15,6 +16,7 @@ class RegisterState extends Equatable {
     bool? isValid,
     FormzSubmissionStatus? status,
     UserEntity? user,
+    String? errorMessage,
   }) {
     return RegisterState(
       firstName: firstName ?? this.firstName,
@@ -22,6 +24,7 @@ class RegisterState extends Equatable {
       isValid: isValid ?? this.isValid,
       status: status ?? this.status,
       user: user ?? this.user,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
@@ -30,6 +33,7 @@ class RegisterState extends Equatable {
   final bool isValid;
   final FormzSubmissionStatus status;
   final UserEntity? user;
+  final String errorMessage;
 
   @override
   List<Object?> get props => [
@@ -38,5 +42,6 @@ class RegisterState extends Equatable {
         isValid,
         status,
         user,
+        errorMessage,
       ];
 }

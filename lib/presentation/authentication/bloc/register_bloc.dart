@@ -8,7 +8,7 @@ part 'register_event.dart';
 part 'register_state.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
-  RegisterBloc({required RegisterUsecase registerUsecase})
+  RegisterBloc({required CreateUserUsecase registerUsecase})
       : _registerUsecase = registerUsecase,
         super(const RegisterState()) {
     on<RegisterFirstNameChanged>(_onFirstNameChanged);
@@ -16,7 +16,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<RegisterSubmitted>(_onSubmitted);
   }
 
-  final RegisterUsecase _registerUsecase;
+  final CreateUserUsecase _registerUsecase;
 
   void _onFirstNameChanged(
     RegisterFirstNameChanged event,
@@ -67,6 +67,17 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         lastName: state.lastName.value,
       ),
     );
-    emit(state.copyWith(status: FormzSubmissionStatus.success, user: response));
+    response.when(
+      success: (data) {
+        emit(state.copyWith(status: FormzSubmissionStatus.success, user: data));
+      },
+      failure: (error) {
+        emit(
+          state.copyWith(
+            status: FormzSubmissionStatus.failure,
+          ),
+        );
+      },
+    );
   }
 }

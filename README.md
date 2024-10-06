@@ -8,7 +8,6 @@ This project contains 3 flavors:
 - staging
 - production
 
-
 _\*Change the .env.example file to .env and add the required apikey._
 
 To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:

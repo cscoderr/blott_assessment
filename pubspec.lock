@@ -426,6 +426,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.0"
+  freezed_result:
+    dependency: "direct main"
+    description:
+      name: freezed_result
+      sha256: "09da2a99c309deead2b7370a4b5a27572d414b17380ef30f58e033a2d1f0e9b1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3+1"
   frontend_server_client:
     dependency: transitive
     description:

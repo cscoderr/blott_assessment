@@ -4,33 +4,24 @@ part of 'database.dart';
 class UsersDao extends DatabaseAccessor<Database> with _$UsersDaoMixin {
   UsersDao(super.db);
 
-  Future<UserEntity> getOrCreateSingleUser(
-    String? id, {
-    String? firstName,
-    String? lastName,
+  Future<UserEntity> create({
+    required String firstName,
+    required String lastName,
   }) async {
-    if (id == null) {
-      return into(users)
-          .insertReturning(
-            UsersCompanion.insert(
-              firstName: firstName!,
-              lastName: lastName!,
-              createdAt: clock.now(),
-            ),
-          )
-          .then(_mapUserDataModel);
-    }
-    return (select(users)..where((filter) => filter.id.equals(id)))
-        .getSingleOrNull()
-        .then(
-      (UserDataModel? user) {
-        if (user == null) {
-          return getOrCreateSingleUser(null);
-        }
-        return _mapUserDataModel(user);
-      },
-    );
+    return into(users)
+        .insertReturning(
+          UsersCompanion.insert(
+            firstName: firstName,
+            lastName: lastName,
+            createdAt: clock.now(),
+          ),
+        )
+        .then(_mapUserDataModel);
   }
+
+  Future<UserEntity?> fetch() => select(users).getSingleOrNull().then(
+        (value) => value?.toEntity(users.actualTableName),
+      );
 
   UserEntity _mapUserDataModel(UserDataModel user) =>
       user.toEntity(users.actualTableName);

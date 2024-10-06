@@ -1,5 +1,6 @@
 import 'package:blott_assessment/domain/domain.dart';
+import 'package:freezed_result/freezed_result.dart';
 
 abstract class HomeRepository {
-  Future<List<MarketNewsEntity>> getMarketNews();
+  Future<Result<List<MarketNewsEntity>, Exception>> getMarketNews();
 }

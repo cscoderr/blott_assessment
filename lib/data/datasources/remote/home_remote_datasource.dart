@@ -24,12 +24,15 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
     final response =
         await dio.get<dynamic>('/news?category=general&token=$apiKey');
     if (response.statusCode == HttpStatus.ok) {
+      if ((response.data as List<dynamic>?) != null) {
+        throw const HomeException();
+      }
       final data = response.data as List<dynamic>?;
       return data
               ?.map((e) => MarketNewsModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [];
     }
-    throw const HomeException();
+    throw Exception('Something went wrong, please try again later.');
   }
 }

@@ -30,6 +30,12 @@ class AuthenticationView extends StatelessWidget {
             jsonEncode(state.user!.toModel().toJson()),
           );
           Navigator.of(context).push(NotificationPage.route());
+        } else if (state.status.isFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errorMessage),
+            ),
+          );
         }
       },
       child: AppOverlayLoader(

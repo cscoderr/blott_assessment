@@ -17,20 +17,20 @@ void initInjector() {
     ..registerLazySingleton<Dio>(
       () => Dio()..options.baseUrl = AppConstant.baseUrl,
     )
-    ..registerLazySingleton<AuthenticationLocalDatasource>(
-      () => AuthenticationLocalDatasourceImpl(database: database),
+    ..registerLazySingleton<UserLocalDatasource>(
+      () => UserLocalDatasourceImpl(database: database),
     )
     ..registerLazySingleton<HomeRemoteDatasource>(
       () => HomeRemoteDatasourceImpl(dio: getIt()),
     )
-    ..registerLazySingleton<AuthenticationRepository>(
-      () => AuthenticationRepositoryImpl(localDatasource: getIt()),
+    ..registerLazySingleton<UserRepository>(
+      () => UserRepositoryImpl(localDatasource: getIt()),
     )
     ..registerLazySingleton<HomeRepository>(
       () => HomeRepositoryImpl(homeRemoteDatasource: getIt()),
     )
-    ..registerLazySingleton<RegisterUsecase>(
-      () => RegisterUsecase(getIt()),
+    ..registerLazySingleton<CreateUserUsecase>(
+      () => CreateUserUsecase(getIt()),
     )
     ..registerLazySingleton<GetMarketNewsUsecase>(
       () => GetMarketNewsUsecase(getIt()),
