@@ -28,3 +28,7 @@ class RegisterParams extends Equatable {
 abstract class Usecases<P, T> {
   Future<T> call(P params);
 }
+
+class NoParams {
+  const NoParams();
+}

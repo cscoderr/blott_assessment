@@ -67,7 +67,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         lastName: state.lastName.value,
       ),
     );
-    print(response.firstName);
     emit(state.copyWith(status: FormzSubmissionStatus.success, user: response));
   }
 }
