@@ -48,17 +48,17 @@ class AppTheme {
         hintStyle: _textTheme.bodyLarge?.copyWith(
           color: AppColors.placeholderTextColor,
         ),
-        border: UnderlineInputBorder(
+        border: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.borderColor,
           ),
         ),
-        focusedBorder: UnderlineInputBorder(
+        focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.borderColor,
           ),
         ),
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.borderColor,
           ),

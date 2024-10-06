@@ -7,7 +7,6 @@ import 'package:blott_assessment/injector.dart';
 import 'package:blott_assessment/l10n/l10n.dart';
 import 'package:blott_assessment/presentation/authentication/authentication.dart';
 import 'package:blott_assessment/presentation/authentication/bloc/register_bloc.dart';
-import 'package:blott_assessment/presentation/home/view/home_page.dart';
 import 'package:blott_assessment/presentation/notification/view/notification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

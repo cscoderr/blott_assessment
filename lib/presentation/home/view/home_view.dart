@@ -8,6 +8,7 @@ import 'package:blott_assessment/presentation/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -59,6 +60,16 @@ class HomeView extends StatelessWidget {
                       separatorBuilder: (context, index) => const Gap(10),
                       itemCount: state.data.length,
                     ),
+                  );
+                } else if (state is MarketNewsFailure) {
+                  return Text(
+                    state.errorMessage,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      color: AppColors.white,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: GoogleFonts.rubik().fontFamily,
+                    ),
+                    textAlign: TextAlign.center,
                   );
                 }
                 return const Center(child: CircularProgressIndicator());

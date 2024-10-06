@@ -55,38 +55,3 @@ class _AppOverlayLoaderState extends State<AppOverlayLoader> {
         : child;
   }
 }
-
-class LoadingIndicator extends StatelessWidget {
-  const LoadingIndicator({
-    super.key,
-    this.color = AppColors.primaryColor,
-    this.value,
-    this.dimension = 20,
-    this.strokeWidth = 4.0,
-    this.useAdaptive = false,
-  });
-
-  final Color color;
-  final double? value;
-  final double dimension;
-  final double strokeWidth;
-  final bool useAdaptive;
-
-  @override
-  Widget build(BuildContext context) => Center(
-        child: SizedBox.square(
-          dimension: dimension,
-          child: useAdaptive
-              ? CircularProgressIndicator.adaptive(
-                  value: value,
-                  strokeWidth: strokeWidth,
-                  valueColor: AlwaysStoppedAnimation<Color>(color),
-                )
-              : CircularProgressIndicator(
-                  value: value,
-                  strokeWidth: strokeWidth,
-                  color: color,
-                ),
-        ),
-      );
-}
