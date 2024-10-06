@@ -10,8 +10,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     required FetchUserUsecase fetchUserUsecase,
   })  : _fetchUserUsecase = fetchUserUsecase,
         super(const AppState()) {
-    on<AppEvent>((event, emit) {});
+    on<AppUserChanged>(_onAppUserChanged);
     on<AppAuthStatusChanged>(_onAuthStatusChanged);
+    on<AppFetchedUserData>(_onAppFetchedUserData);
   }
 
   final FetchUserUsecase _fetchUserUsecase;
@@ -20,7 +21,20 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     AppAuthStatusChanged event,
     Emitter<AppState> emit,
   ) async {
+    emit(state.copyWith(authStatus: event.status));
+  }
+
+  void _onAppUserChanged(AppUserChanged event, Emitter<AppState> emit) {
+    emit(state.copyWith(user: event.user));
+  }
+
+  Future<void> _onAppFetchedUserData(
+    AppFetchedUserData event,
+    Emitter<AppState> emit,
+  ) async {
     final response = await _fetchUserUsecase();
-    emit(state);
+    if (response.maybeValue != null) {
+      add(AppUserChanged(response.maybeValue!));
+    }
   }
 }

@@ -1,9 +1,6 @@
-import 'dart:convert';
-
+import 'package:blott_assessment/app/app.dart';
 import 'package:blott_assessment/core/core.dart';
-import 'package:blott_assessment/data/data.dart';
 import 'package:blott_assessment/gen/assets.gen.dart';
-import 'package:blott_assessment/injector.dart';
 import 'package:blott_assessment/l10n/l10n.dart';
 import 'package:blott_assessment/presentation/authentication/authentication.dart';
 import 'package:blott_assessment/presentation/authentication/bloc/register_bloc.dart';
@@ -25,10 +22,7 @@ class AuthenticationView extends StatelessWidget {
     return BlocListener<RegisterBloc, RegisterState>(
       listener: (context, state) {
         if (state.status.isSuccess) {
-          getIt<InAppMemory>().write(
-            'user',
-            jsonEncode(state.user!.toModel().toJson()),
-          );
+          context.read<AppBloc>().add(AppUserChanged(state.user!));
           Navigator.of(context).push(NotificationPage.route());
         } else if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

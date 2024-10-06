@@ -1,8 +1,5 @@
-import 'dart:convert';
-
+import 'package:blott_assessment/app/app.dart';
 import 'package:blott_assessment/core/core.dart';
-import 'package:blott_assessment/data/data.dart';
-import 'package:blott_assessment/injector.dart';
 import 'package:blott_assessment/l10n/l10n.dart';
 import 'package:blott_assessment/presentation/home/home.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +14,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final textTheme = context.textTheme;
-    final userJson = getIt<InAppMemory>().read('user') as String;
-    final user =
-        UserModel.fromJson(jsonDecode(userJson) as Map<String, dynamic>);
+    final user = context.select((AppBloc bloc) => bloc.state.user);
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -36,7 +31,7 @@ class HomeView extends StatelessWidget {
                 color: Color(0xFF05021B),
               ),
               child: Text(
-                l10n.homeTitle(user.firstName),
+                l10n.homeTitle('${user?.firstName}'),
                 style: textTheme.titleLarge?.copyWith(
                   color: Colors.white,
                 ),

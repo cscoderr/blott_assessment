@@ -14,3 +14,16 @@ final class AppAuthStatusChanged extends AppEvent {
   @override
   List<Object> get props => [status];
 }
+
+final class AppUserChanged extends AppEvent {
+  const AppUserChanged(this.user);
+
+  final UserEntity user;
+
+  @override
+  List<Object> get props => [user];
+}
+
+final class AppFetchedUserData extends AppEvent {
+  const AppFetchedUserData();
+}
