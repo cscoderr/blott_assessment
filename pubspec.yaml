@@ -35,7 +35,7 @@ dependencies:
 dev_dependencies:
   bloc_test: ^9.1.7
   build_runner: ^2.4.12
-  drift_dev: ^2.20.3
+  drift_dev: ^2.21.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
