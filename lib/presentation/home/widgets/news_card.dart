@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 class NewsCard extends StatelessWidget {
@@ -21,9 +22,9 @@ class NewsCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () async {
-        // if (!await launchUrl(Uri.parse(data.url!))) {
-        //   throw Exception('Could not launch url');
-        // }
+        if (!await launchUrl(Uri.parse(data.url!))) {
+          throw Exception('Could not launch url');
+        }
       },
       child: SizedBox(
         height: 132,

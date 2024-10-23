@@ -22,7 +22,7 @@ class NotificationPage extends StatelessWidget {
       backgroundColor: AppColors.secondaryBackgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
               Expanded(

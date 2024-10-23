@@ -7,7 +7,7 @@ class AppTheme {
 
   static TextTheme get _textTheme => GoogleFonts.robotoTextTheme().copyWith(
         titleLarge: GoogleFonts.roboto(
-          fontSize: 30,
+          fontSize: 28,
           fontWeight: FontWeight.w700,
           color: AppColors.primaryTextColor,
         ),

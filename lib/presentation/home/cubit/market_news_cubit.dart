@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:blott_assessment/domain/domain.dart';
-import 'package:blott_assessment/domain/usecases/get_market_news_usecase.dart';
 import 'package:equatable/equatable.dart';
 
 part 'market_news_state.dart';

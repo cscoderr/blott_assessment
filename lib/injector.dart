@@ -3,7 +3,6 @@ import 'package:blott_assessment/data/data.dart';
 import 'package:blott_assessment/data/datasources/datasources.dart';
 import 'package:blott_assessment/data/repositories/home_repository_impl.dart';
 import 'package:blott_assessment/domain/domain.dart';
-import 'package:blott_assessment/domain/usecases/get_market_news_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -34,5 +33,8 @@ void initInjector() {
     )
     ..registerLazySingleton<GetMarketNewsUsecase>(
       () => GetMarketNewsUsecase(getIt()),
+    )
+    ..registerLazySingleton<FetchUserUsecase>(
+      () => FetchUserUsecase(getIt()),
     );
 }
